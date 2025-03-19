@@ -20,26 +20,8 @@ class UserController extends Controller
     public function index()
     {
         // Tambahkan beberapa data user jika belum ada
-        $user = [
-            [
-                'username' => 'admin',
-                'nama'     => 'Administrator',
-                'password' => Hash::make('12345'),
-                'level_id' => 1,
-            ],
-            [
-                'username' => 'manager',
-                'nama'     => 'Manager',
-                'password' => Hash::make('12345'),
-                'level_id' => 2,
-            ],
-            [
-                'username' => 'staff',
-                'nama'     => 'Staff/Kasir',
-                'password' => Hash::make('12345'),
-                'level_id' => 3,
-            ],
-        ];
+        $user = UserModel::with('level')->get();
+        return view('user', ['data' => $user]);
     
         // Ambil semua data dari tabel
         $user = UserModel::all();
