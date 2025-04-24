@@ -103,6 +103,7 @@ Route::group(['prefix' => 'kategori'], function () {
     Route::delete('/{id}/delete_ajax', [KategoriController::class, 'delete_ajax']);
     Route::get('/{id}/show_ajax', [KategoriController::class, 'show_ajax']);
     Route::delete('/{id}', [KategoriController::class, 'destroy']);
+    
 });
 
 Route::group(['prefix' => 'barang'], function () {
