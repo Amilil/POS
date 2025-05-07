@@ -123,3 +123,72 @@ Route::group(['prefix' => 'barang'], function () {
     Route::delete('/{id}/delete_ajax', [BarangController::class, 'delete_ajax']);
     Route::delete('/{id}', [BarangController::class, 'destroy']);
 });
+
+Route::group(['prefix' => 'stok'], function () {
+    Route::get('/', [StokController::class, 'index']);
+    Route::post('/list', [StokController::class, 'list']);
+    Route::get('/create', [StokController::class, 'create']);
+    Route::post('/', [StokController::class, 'store']);
+
+    Route::get('/create_ajax', [StokController::class, 'create_ajax']);
+    Route::post('/ajax', [StokController::class, 'store_ajax']);
+    
+    Route::get('/{id}', [StokController::class, 'show']);
+    Route::get('/{id}/edit', [StokController::class, 'edit']);
+    Route::put('/{id}', [StokController::class, 'update']);
+
+    Route::get('/{id}/edit_ajax', [StokController::class, 'edit_ajax']);
+    Route::put('/{id}/update_ajax', [StokController::class, 'update_ajax']);
+    
+    Route::get('/{id}/delete_ajax', [StokController::class, 'confirm_ajax']);
+    Route::delete('/{id}/delete_ajax', [StokController::class, 'delete_ajax']);
+
+    Route::get('/{id}/show_ajax', [StokController::class, 'show_ajax']);
+    Route::delete('/{id}', [StokController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'penjualan'], function () {
+    Route::get('/', [PenjualanController::class, 'index']);
+    Route::post('/list', [PenjualanController::class, 'list']);
+    Route::get('/create', [PenjualanController::class, 'create']);
+    Route::post('/', [PenjualanController::class, 'store']);
+    Route::get('/create_ajax', [PenjualanController::class, 'create_ajax']);
+    Route::get('/penjualan/create_ajax', [PenjualanController::class, 'create_ajax'])->name('penjualan.create_ajax');
+    Route::post('/ajax', [PenjualanController::class, 'store_ajax']);
+    Route::get('/{id}', [PenjualanController::class, 'show']);
+    Route::get('/{id}/show', [PenjualanController::class, 'show'])->name('penjualan.show');
+    Route::get('/{id}/edit', [PenjualanController::class, 'edit']);
+    Route::put('/{id}', [PenjualanController::class, 'update']);
+    Route::get('/{id}/edit_ajax', [PenjualanController::class, 'edit_ajax']);
+    Route::put('/{id}/update_ajax', [PenjualanController::class, 'update_ajax']);
+    Route::get('/{id}/delete_ajax', [PenjualanController::class, 'confirm_ajax']);
+    Route::delete('/{id}/delete_ajax', [PenjualanController::class, 'delete_ajax']);
+    Route::get('/{id}/show_ajax', [PenjualanController::class, 'show_ajax']);
+    Route::delete('/{id}', [PenjualanController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'penjualan-detail'], function () {
+    Route::get('/', [PenjualanDetailController::class, 'index']);
+    Route::post('/list', [PenjualanDetailController::class, 'list']);
+    Route::get('/create', [PenjualanDetailController::class, 'create']);
+    Route::post('/', [PenjualanDetailController::class, 'store']);
+    Route::get('/create_ajax', [PenjualanDetailController::class, 'create_ajax']);
+    Route::post('/ajax', [PenjualanDetailController::class, 'store_ajax']);
+    Route::get('/{id}', [PenjualanDetailController::class, 'show']);
+    Route::get('/{id}/edit', [PenjualanDetailController::class, 'edit']);
+    Route::put('/{id}', [PenjualanDetailController::class, 'update']);
+    Route::get('/{id}/edit_ajax', [PenjualanDetailController::class, 'edit_ajax']);
+    Route::put('/{id}/update_ajax', [PenjualanDetailController::class, 'update_ajax']);
+    Route::get('/{id}/delete_ajax', [PenjualanDetailController::class, 'confirm_ajax']);
+    Route::delete('/{id}/delete_ajax', [PenjualanDetailController::class, 'delete_ajax']);
+    Route::delete('/{id}', [PenjualanDetailController::class, 'destroy']);
+    Route::post('/penjualan-detail/store_ajax', [PenjualanDetailController::class, 'store_ajax']);
+    Route::get('/{id}/show_ajax', [PenjualanDetailController::class, 'show_ajax']);
+
+    // Route::post('t_penjualan_detail/list', [PenjualanDetailController::class, 'list']);
+    Route::get('/penjualan-detail', [PenjualanDetailController::class, 'index'])->name('penjualan-detail.index');
+    Route::get('/penjualan-detail/create', [PenjualanDetailController::class, 'create'])->name('penjualan-detail.create');
+    Route::post('/penjualan-detail', [PenjualanDetailController::class, 'store'])->name('penjualan-detail.store'); // <-- ini penting
+    Route::get('/penjualan-detail', [PenjualanDetailController::class, 'index'])->name('penjualan-detail.index');
+
+});
