@@ -1,6 +1,6 @@
-@extends('layouts.template') 
+@extends('layouts.template')
 
-@section('content') 
+@section('content')
     <div class="card card-outline card-primary">
         <div class="card-header">
             <h3 class="card-title">{{ $page->title }}</h3>
@@ -13,20 +13,20 @@
                     <label class="col-1 control-label col-form-label">Kode Kategori</label>
                     <div class="col-11">
                         <input type="text" class="form-control" id="kategori_kode" name="kategori_kode" value="{{ 
-    old('kategori_kode') }}" required>
-                        @error('kategori_kode') 
+            old('kategori_kode') }}" required>
+                        @error('kategori_kode')
                             <small class="form-text text-danger">{{ $message }}</small>
-                        @enderror 
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Nama Kategori</label>
                     <div class="col-11">
                         <input type="text" class="form-control" id="kategori_nama" name="kategori_nama" value="{{ 
-    old('kategori_nama') }}" required>
-                        @error('kategori_nama') 
+            old('kategori_nama') }}" required>
+                        @error('kategori_nama')
                             <small class="form-text text-danger">{{ $message }}</small>
-                        @enderror 
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -40,7 +40,7 @@
         </div>
     </div>
 @endsection
-@push('css') 
+@push('css')
 @endpush
 @push('js')
 @endpush
