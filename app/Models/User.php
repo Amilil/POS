@@ -17,8 +17,8 @@ class User extends Authenticatable
         'nama',
         'email',
         'password',
-        'profile_picture', 
-        'role', 
+        'profile_picture',
+        'role', // Ini kolom yang menyimpan kode peran (ADM, USR, dll.)
     ];
 
     protected $hidden = [
@@ -42,15 +42,30 @@ class User extends Authenticatable
     }
 
     /**
-     *  Menampilkan nama role berdasarkan kode.
+     * Mengembalikan kode peran pengguna (e.g., 'ADM', 'USR').
+     * Method ini dipanggil oleh middleware AuthorizeUser.
+     *
+     * @return string
+     */
+    public function getRole(): string
+    {
+        // Mengambil nilai langsung dari kolom 'role' di tabel users
+        return $this->role ?? '';
+    }
+
+    /**
+     * Menampilkan nama role berdasarkan kode.
+     * Method ini berguna untuk tampilan di UI, bukan untuk otorisasi di middleware.
      */
     public function getRoleName()
     {
         $roles = [
             'ADM' => 'Administrator',
             'USR' => 'User',
+            // Tambahkan peran lain jika ada (misal: 'MNG' => 'Manager', 'STF' => 'Staff')
         ];
 
-        return $roles[$this->role] ?? 'Tidak Diketahui';
+        // Memastikan peran diubah ke uppercase untuk perbandingan yang konsisten
+        return $roles[strtoupper($this->role)] ?? 'Tidak Diketahui';
     }
 }

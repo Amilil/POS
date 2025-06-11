@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Barryvdh\DomPDF\ServiceProvider::class, // Pastikan baris ini ada jika belum ada
 
         /*
          * Application Service Providers...
@@ -182,7 +183,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Pdf' => Barryvdh\DomPDF\Facade\Pdf::class, // TAMBAHKAN BARIS INI
     ])->toArray(),
 
 ];

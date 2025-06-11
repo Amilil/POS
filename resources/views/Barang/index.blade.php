@@ -135,6 +135,6 @@
                 $('#kategori_id').on('change', function () {
                     dataBarang.ajax.reload();
                 });
-            });
+            }); 
         </script>
     @endpush

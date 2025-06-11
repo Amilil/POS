@@ -11,9 +11,11 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="downloadTemplate">Download Template</label>
-                    <a href="{{ asset('template_barang.xlsx') }}" class="btn btn-info btn-sm" download>
+                    {{-- Mengubah asset() menjadi url() atau route() untuk memanggil controller export_excel --}}
+                    <a href="{{ url('/barang/export_excel') }}" class="btn btn-info btn-sm" download="template_barang.xlsx">
                         <i class="fa fa-file-excel"></i> Download
                     </a>
+
                     <small id="error-kategori_id" class="error-text form-text text-danger"></small>
                 </div>
                 <div class="form-group">

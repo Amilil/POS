@@ -11,6 +11,8 @@ use Yajra\DataTables\Facades\DataTables;
 use Symfony\Component\HttpFoundation\Response;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BarangExport;
 use Illuminate\Support\Facades\DB;
 
 class BarangController extends Controller
@@ -454,4 +456,7 @@ public function import()
 
         return $pdf->stream('Data Barang ' . date('Y-m-d H-i-s') . '.pdf');
     }
+    
+
+
 }
