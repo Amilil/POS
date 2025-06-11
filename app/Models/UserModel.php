@@ -18,7 +18,7 @@ class UserModel extends Authenticatable implements JWTSubject
 
     public function getJWTCustomClaims()
     {
-        return[];
+        return [];
     }
 
     use HasFactory;
@@ -36,7 +36,7 @@ class UserModel extends Authenticatable implements JWTSubject
         return $this->belongsTo(LevelModel::class, 'level_id', 'level_id');
     }
 
-    public function getRoleName(): String
+    public function getRoleName(): string
     {
         return $this->level->level_nama;
     }
@@ -51,13 +51,12 @@ class UserModel extends Authenticatable implements JWTSubject
         return $this->level->level_kode;
     }
 
-    // matikan kode dibawah ini kalo udah selesai js 10
-    // public function image(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn($image) => asset('public/uploads/profile' . $image),
-    //     );
-    // }
+    public function image(): Attribute
+    {
+        return Attribute::make(
+            get: fn($image) => asset('public/uploads/profile' . $image),
+        );
+    }
 
     public function getProfilePictureUrl()
     {
