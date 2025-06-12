@@ -27,7 +27,7 @@ class RegisterController extends Controller
 
         // ambil file image dari request
         $image = $request->file('image');
-        $image = $image->store('uploads', 'public'); // simpan ke folder storage/app/public/uploads
+        $imagePath = $image->store('uploads', 'public'); // simpan ke folder storage/app/public/uploads
 
         // Create user
         $user = UserModel::create([
@@ -35,7 +35,7 @@ class RegisterController extends Controller
             'nama' => $request->nama,
             'password' => bcrypt($request->password),
             'level_id' => $request->level_id,
-            'image' => $image->hashName(),
+            'image' => $image->hasName(),
         ]);
 
         // Return JSON if user is created
